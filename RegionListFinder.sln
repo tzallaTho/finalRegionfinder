@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionListFinder", "RegionListFinder\RegionListFinder.csproj", "{AD17F873-5119-45E8-BE54-E010EE0D659B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E1320CB0-2121-4DC2-A19E-10B34865EEFB} = {E1320CB0-2121-4DC2-A19E-10B34865EEFB}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionFinder", "RegionFinder\RegionFinder.csproj", "{E1320CB0-2121-4DC2-A19E-10B34865EEFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD17F873-5119-45E8-BE54-E010EE0D659B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD17F873-5119-45E8-BE54-E010EE0D659B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD17F873-5119-45E8-BE54-E010EE0D659B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD17F873-5119-45E8-BE54-E010EE0D659B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1320CB0-2121-4DC2-A19E-10B34865EEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1320CB0-2121-4DC2-A19E-10B34865EEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1320CB0-2121-4DC2-A19E-10B34865EEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1320CB0-2121-4DC2-A19E-10B34865EEFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,4 @@
+C:\Users\Theodora\Documents\Visual Studio 2012\Projects\RegionListFinder\RegionFinder\bin\RegionFinder.dll
+C:\Users\Theodora\Documents\Visual Studio 2012\Projects\RegionListFinder\RegionFinder\bin\RegionFinder.pdb
+C:\Users\Theodora\Documents\Visual Studio 2012\Projects\RegionListFinder\RegionFinder\obj\Debug\RegionFinder.dll
+C:\Users\Theodora\Documents\Visual Studio 2012\Projects\RegionListFinder\RegionFinder\obj\Debug\RegionFinder.pdb

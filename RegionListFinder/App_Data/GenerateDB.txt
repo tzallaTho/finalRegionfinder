@@ -1,0 +1,279 @@
+﻿USE [master]
+GO
+/****** Object:  Database [SpeedexDB]    Script Date: 04/30/2015 13:52:42 ******/
+CREATE DATABASE [SpeedexDB] ON  PRIMARY 
+( NAME = N'SpeedexDB', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\SpeedexDB.mdf' , SIZE = 3520KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'SpeedexDB_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\SpeedexDB_log.ldf' , SIZE = 1408KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+ COLLATE Greek_100_CI_AI_KS
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [SpeedexDB].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [SpeedexDB] SET ANSI_NULL_DEFAULT OFF
+GO
+ALTER DATABASE [SpeedexDB] SET ANSI_NULLS OFF
+GO
+ALTER DATABASE [SpeedexDB] SET ANSI_PADDING OFF
+GO
+ALTER DATABASE [SpeedexDB] SET ANSI_WARNINGS OFF
+GO
+ALTER DATABASE [SpeedexDB] SET ARITHABORT OFF
+GO
+ALTER DATABASE [SpeedexDB] SET AUTO_CLOSE ON
+GO
+ALTER DATABASE [SpeedexDB] SET AUTO_CREATE_STATISTICS ON
+GO
+ALTER DATABASE [SpeedexDB] SET AUTO_SHRINK OFF
+GO
+ALTER DATABASE [SpeedexDB] SET AUTO_UPDATE_STATISTICS ON
+GO
+ALTER DATABASE [SpeedexDB] SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+ALTER DATABASE [SpeedexDB] SET CURSOR_DEFAULT  GLOBAL
+GO
+ALTER DATABASE [SpeedexDB] SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+ALTER DATABASE [SpeedexDB] SET NUMERIC_ROUNDABORT OFF
+GO
+ALTER DATABASE [SpeedexDB] SET QUOTED_IDENTIFIER OFF
+GO
+ALTER DATABASE [SpeedexDB] SET RECURSIVE_TRIGGERS OFF
+GO
+ALTER DATABASE [SpeedexDB] SET  ENABLE_BROKER
+GO
+ALTER DATABASE [SpeedexDB] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+ALTER DATABASE [SpeedexDB] SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+ALTER DATABASE [SpeedexDB] SET TRUSTWORTHY OFF
+GO
+ALTER DATABASE [SpeedexDB] SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+ALTER DATABASE [SpeedexDB] SET PARAMETERIZATION SIMPLE
+GO
+ALTER DATABASE [SpeedexDB] SET READ_COMMITTED_SNAPSHOT OFF
+GO
+ALTER DATABASE [SpeedexDB] SET HONOR_BROKER_PRIORITY OFF
+GO
+ALTER DATABASE [SpeedexDB] SET  READ_WRITE
+GO
+ALTER DATABASE [SpeedexDB] SET RECOVERY SIMPLE
+GO
+ALTER DATABASE [SpeedexDB] SET  MULTI_USER
+GO
+ALTER DATABASE [SpeedexDB] SET PAGE_VERIFY CHECKSUM
+GO
+ALTER DATABASE [SpeedexDB] SET DB_CHAINING OFF
+GO
+USE [SpeedexDB]
+GO
+/****** Object:  Table [dbo].[State]    Script Date: 04/30/2015 13:52:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[State](
+	[stateID] [int] IDENTITY(1,1) NOT NULL,
+	[sta_Descr] [nvarchar](30) COLLATE Greek_100_CI_AI_KS NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[stateID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[State] ON
+INSERT [dbo].[State] ([stateID], [sta_Descr]) VALUES (1, N'Λακωνία')
+INSERT [dbo].[State] ([stateID], [sta_Descr]) VALUES (2, N'Αττική')
+INSERT [dbo].[State] ([stateID], [sta_Descr]) VALUES (3, N'Καβάλας')
+INSERT [dbo].[State] ([stateID], [sta_Descr]) VALUES (4, N'Ξάνθη')
+INSERT [dbo].[State] ([stateID], [sta_Descr]) VALUES (5, N'Ροδόπη')
+SET IDENTITY_INSERT [dbo].[State] OFF
+/****** Object:  Table [dbo].[ZipCodes]    Script Date: 04/30/2015 13:52:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[ZipCodes](
+	[zipID] [int] IDENTITY(1,1) NOT NULL,
+	[zip_Desc] [varchar](6) COLLATE Greek_100_CI_AI_KS NULL,
+	[stateId] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[zipID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[ZipCodes] ON
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (1, N'13451', 2)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (2, N'13452', 2)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (3, N'13453', 3)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (4, N'13454', 2)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (5, N'12789', 5)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (6, N'12790', 5)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (7, N'12791', 5)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (8, N'17952', 3)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (9, N'17953', 3)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (12, N'19989', 4)
+INSERT [dbo].[ZipCodes] ([zipID], [zip_Desc], [stateId]) VALUES (13, N'19987', 4)
+SET IDENTITY_INSERT [dbo].[ZipCodes] OFF
+/****** Object:  StoredProcedure [dbo].[GetAllStates]    Script Date: 04/30/2015 13:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetAllStates]  
+
+AS
+
+select 'επιλογή  νομού' as descr,-1 as stateID
+union
+select  sta_descr as descr,stateID from dbo.State
+GO
+/****** Object:  Table [dbo].[Regions]    Script Date: 04/30/2015 13:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Regions](
+	[stateId] [int] NOT NULL,
+	[ZipId] [int] NOT NULL,
+	[Name] [nvarchar](50) COLLATE Greek_100_CI_AI_KS NULL,
+ CONSTRAINT [pk_Regions] PRIMARY KEY CLUSTERED 
+(
+	[stateId] ASC,
+	[ZipId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (2, 1, N'Φυλή')
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (2, 2, N'Καματερό')
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (3, 3, N'Άνω Τούμπα ')
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (3, 8, N'βγδφρηγφηβ')
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (4, 12, N'Εχίνος')
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (4, 13, N'Βιστονίδα')
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (5, 5, N'αμυγδα')
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (5, 6, N'Άνω Σχοίνα')
+INSERT [dbo].[Regions] ([stateId], [ZipId], [Name]) VALUES (5, 7, N'Κάτω Τούμπα ')
+/****** Object:  StoredProcedure [dbo].[InsertZip]    Script Date: 04/30/2015 13:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[InsertZip]  
+@newzip varchar(6),@stateId int 
+AS
+if  exists(select * from  dbo.ZipCodes 
+  where stateId=@stateId and zip_Desc =@newzip)
+  begin
+  select -1;
+  end
+ else
+ begin
+ insert into dbo.ZipCodes
+ (zip_Desc,stateId) values(@newzip,@stateId)
+	SELECT SCOPE_IDENTITY()
+ end
+GO
+/****** Object:  StoredProcedure [dbo].[GetZipCodes]    Script Date: 04/30/2015 13:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetZipCodes]   
+ @stateId int=-1,@stateDesc nvarchar(20)=''
+AS
+select  zip.zipId as zipId,  zip.stateId as stateId,s.sta_Descr as nomos,   zip_Desc 
+from dbo.ZipCodes as zip
+inner join dbo.state as s on s.stateID= zip.stateId
+where zip.stateId=(case when @stateId=-1 then zip.stateId else @stateId end)
+ and s.sta_descr like '%' + @stateDesc + '%'
+ 
+ union
+ select -1 as zipId,-1 as stateId,'' as nomos,'' as zip_Desc
+GO
+/****** Object:  StoredProcedure [dbo].[GetRegionStatesForService]    Script Date: 04/30/2015 13:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetRegionStatesForService] 
+@stateDescr nvarchar(30)
+AS
+SELECT  s.sta_Descr as state,zip.zip_Desc as zip
+
+ FROM  [SpeedexDB].[dbo].[State] as s 
+ left join [SpeedexDB].[dbo].ZipCodes as zip on zip.stateId=s.stateID
+ where s.sta_Descr like '%' +@stateDescr +'%' 
+ order by zip_Desc desc
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateRegionData]    Script Date: 04/30/2015 13:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[UpdateRegionData]  
+@zipId int ,@stateId int,@newdesc nvarchar(40)
+AS
+
+update [SpeedexDB].[dbo].[Regions]
+set Name=@newdesc
+where ZipId=@zipId and stateId=@stateId
+GO
+/****** Object:  StoredProcedure [dbo].[GetAllRegions]    Script Date: 04/30/2015 13:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetAllRegions] 
+@zipId int =-1,@stateId int=-1
+AS
+SELECT 
+s.stateID as stateId,zip.zipID as zipId,
+  reg.name as name,s.sta_Descr as descr,zip.zip_Desc as zipDesc
+ FROM [SpeedexDB].[dbo].[Regions] as reg
+ left join [SpeedexDB].[dbo].[State] as s on s.stateID=reg.stateId
+ left join [SpeedexDB].[dbo].ZipCodes as zip on zip.zipID=reg.ZipId
+ where s.stateID= (case when @stateId=-1 then s.stateID else @stateId end)
+ and zip.zipID = (case when @zipId=-1 then zip.zipID else @zipId end)
+GO
+/****** Object:  StoredProcedure [dbo].[InsertRegion]    Script Date: 04/30/2015 13:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[InsertRegion]  
+--
+@regname nvarchar(50),@stateId int,@zipId int
+AS
+ 
+ BEGIN TRY
+ insert into dbo.Regions (stateId,zipId,name) values(@stateId,@zipId,@regname);
+  select SCOPE_IDENTITY();
+ END TRY
+ BEGIN CATCH
+	select -1;
+	END CATCH;
+GO
+/****** Object:  ForeignKey [FK__ZipCodes__stateI__145C0A3F]    Script Date: 04/30/2015 13:52:46 ******/
+ALTER TABLE [dbo].[ZipCodes]  WITH CHECK ADD FOREIGN KEY([stateId])
+REFERENCES [dbo].[State] ([stateID])
+GO
+/****** Object:  ForeignKey [FK_Regions_State]    Script Date: 04/30/2015 13:52:49 ******/
+ALTER TABLE [dbo].[Regions]  WITH CHECK ADD  CONSTRAINT [FK_Regions_State] FOREIGN KEY([stateId])
+REFERENCES [dbo].[State] ([stateID])
+GO
+ALTER TABLE [dbo].[Regions] CHECK CONSTRAINT [FK_Regions_State]
+GO
+/****** Object:  ForeignKey [FK_Regions_ZipCodes]    Script Date: 04/30/2015 13:52:49 ******/
+ALTER TABLE [dbo].[Regions]  WITH CHECK ADD  CONSTRAINT [FK_Regions_ZipCodes] FOREIGN KEY([ZipId])
+REFERENCES [dbo].[ZipCodes] ([zipID])
+GO
+ALTER TABLE [dbo].[Regions] CHECK CONSTRAINT [FK_Regions_ZipCodes]
+GO
